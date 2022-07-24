@@ -1,0 +1,86 @@
+#MoBoxHunter By MossCG
+#插件配置文件
+
+#本场玩家上限（总量上限）
+maxPlayer: 16
+#开始游戏最少玩家
+minPlayer: 4
+
+#逃亡者上限（注意，剩下的都是猎人）
+#实际逃亡者数量会根据玩家数量匹配
+maxRunner: 4
+
+#时间设置（单位均为秒）
+#开始游戏前等待时间
+waitTime: 60
+#人数到齐缩减等待时间
+reduceTime: 5
+#开始游戏后缓冲时间
+startTime: 10
+#玩家离线后等待时间
+reconnectTime: 300
+#玩家重生后无敌时间
+respawnSafeTime: 10
+
+#逃亡者雷达警告范围
+radarWarnDistance: 50
+
+#团队伤害
+teamDamage: true
+
+#开局有指南针
+startCompass: false
+
+#出生点设置
+#偏移均为随机正负值，随机偏移必须大于零
+#猎人X轴基础偏移及随机偏移
+hunterXBasic: 5
+hunterXRandom: 5
+#猎人Z轴基础偏移及随机偏移
+hunterZBasic: 5
+hunterZRandom: 5
+#猎人Y轴基础偏移
+hunterYBasic: 1
+#逃亡者X轴基础偏移及随机偏移
+runnerXBasic: 20
+runnerXRandom: 5
+#逃亡者Z轴基础偏移及随机偏移
+runnerZBasic: 20
+runnerZRandom: 5
+#逃亡者Z轴基础偏移
+runnerYBasic: 1
+#猎人及逃亡者出生世界
+hunterSpawnWorld: "world"
+runnerSpawnWorld: "world"
+
+#积分设置
+#只有安装了MoBoxPoint插件才会启用
+#参与游戏就有的积分
+pointBasic: 5
+#胜利方积分
+pointWinnerRunner: 20
+pointWinnerHunter: 10
+#击杀的积分，猎人和逃亡者积分不同
+#击杀队友不计入积分
+pointRunnerKill: 3
+pointHunterKill: 5
+
+#积分及统计数据名称
+#主积分
+pointNameMain: "main"
+#总场次
+pointNameTotal: "hunter-standard-total"
+#胜场
+pointNameWin: "hunter-standard-win"
+#击杀
+pointNameKill: "hunter-standard-kill"
+#死亡
+pointNameDeath: "hunter-standard-death"
+
+#游戏结束自动跳转到的服务器
+#需要在BC环境下才可以用，相当于游戏结束自动开下一局
+#需要BC安装PlayerBalancer插件一起食用
+gameEndServerTeleport: true
+gameServerNext: "hunterStandard"
+gameServerLobby: "lobby"
+

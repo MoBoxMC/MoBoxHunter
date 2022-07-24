@@ -1,0 +1,21 @@
+name: MoBoxHunter
+version: 1.0-SNAPSHOT
+main: org.mossmc.mosscg.MoBoxHunter.Main
+author: MossCG
+description: A plugin by MossCG for MoBoxMC.
+commands:
+  moboxhunter:
+    description: 主指令
+permissions:
+  moboxhunter.resetcountdown:
+    description: 重置等待时间权限
+    default: op
+  moboxhunter.reducecountdown:
+    description: 减少等待时间权限
+    default: op
+  moboxhunter.changerole:
+    description: 更换游戏角色权限
+    default: op
+  moboxhunter.changeotherrole:
+    description: 更换他人游戏角色权限
+    default: op
