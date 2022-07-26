@@ -4,7 +4,7 @@ import org.bukkit.Location;
 
 public class BasicInfo {
     public static String pluginName = "MoBoxHunter";
-    public static String pluginVersion = "V1.4.2.3.2228";
+    public static String pluginVersion = "V1.4.3.1.1618";
     public static String gameName = "Hunter";
 
     public static boolean compassUnlock = false;

@@ -49,7 +49,7 @@ public class ListenerKill implements Listener {
             event.getDrops().removeIf(itemStack -> itemStack.getType().equals(Material.COMPASS));
             switch (PlayerCache.getPlayerRole(target.getUniqueId())) {
                 case Observer:
-                    target.sendMessage(ChatColor.RED+"你观察者模式咋死的？？");
+                    event.setDeathMessage(null);
                     target.setGameMode(GameMode.SPECTATOR);
                     break;
                 case Hunter:
@@ -57,6 +57,11 @@ public class ListenerKill implements Listener {
                     target.setGameMode(GameMode.SURVIVAL);
                     break;
                 case Runner:
+                    if (PlayerCache.runnerStatusMap.get(target.getUniqueId()).equals(BasicInfo.runnerStatus.Dead)) {
+                        target.setGameMode(GameMode.SPECTATOR);
+                        event.setDeathMessage(null);
+                        break;
+                    }
                     target.sendMessage(ChatColor.RED+"你被杀死了，由于你的身份是逃亡者，你无法再复活！现在你可以观战！");
                     PlayerCache.runnerStatusMap.replace(target.getUniqueId(), BasicInfo.runnerStatus.Dead);
                     BasicInfo.endLocation = target.getLocation();
