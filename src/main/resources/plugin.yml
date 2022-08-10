@@ -6,7 +6,12 @@ description: A plugin by MossCG for MoBoxMC.
 commands:
   moboxhunter:
     description: 主指令
+  mbht:
+    description: 主指令缩写
 permissions:
+  moboxhunter.list:
+    description: 查看游戏内玩家列表权限
+    default: true
   moboxhunter.resetcountdown:
     description: 重置等待时间权限
     default: op
@@ -19,3 +24,6 @@ permissions:
   moboxhunter.changeotherrole:
     description: 更换他人游戏角色权限
     default: op
+  moboxhunter.help:
+    description: 查看帮助权限
+    default: true

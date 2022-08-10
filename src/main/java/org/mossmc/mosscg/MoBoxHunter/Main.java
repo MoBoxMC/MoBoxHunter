@@ -75,7 +75,31 @@ public class Main extends JavaPlugin {
             return false;
         }
         switch (args[0]) {
+            case "help":
+                if (!sender.hasPermission("moboxhunter.help") && !sender.isOp()) {
+                    sender.sendMessage(ChatColor.RED+"你没有权限执行这个指令！");
+                    return false;
+                }
+                sender.sendMessage(ChatColor.DARK_GREEN+"MoBoxHunter帮助信息");
+                if (sender.hasPermission("moboxhunter.list")) {
+                    sender.sendMessage(ChatColor.GREEN+"/mbht list - 游戏内玩家列表");
+                }
+                if (sender.hasPermission("moboxhunter.resetcountdown")) {
+                    sender.sendMessage(ChatColor.GREEN+"/mbht resetcountdown - 重置等待时间");
+                }
+                if (sender.hasPermission("moboxhunter.reducecountdown")) {
+                    sender.sendMessage(ChatColor.GREEN+"/mbht reducecountdown - 减少等待时间");
+                }
+                if (sender.hasPermission("moboxhunter.changerole")) {
+                    sender.sendMessage(ChatColor.GREEN+"/mbht join <hunter/runner/observer> [玩家ID] - 更换自己或别人的游戏角色");
+                }
+                sender.sendMessage(ChatColor.YELLOW+"By 墨守MossCG");
+                break;
             case "list":
+                if (!sender.hasPermission("moboxhunter.list") && !sender.isOp()) {
+                    sender.sendMessage(ChatColor.RED+"你没有权限执行这个指令！");
+                    return false;
+                }
                 if (!GameBasicInfo.gameStatus.equals(GameStatus.gameStatus.Running)) {
                     sender.sendMessage(ChatColor.RED+"游戏还未开始或已结束！您无法使用此指令！");
                     return false;
@@ -159,7 +183,7 @@ public class Main extends JavaPlugin {
                 }
                 break;
             default:
-                sender.sendMessage(ChatColor.RED+"未知指令！");
+                sender.sendMessage(ChatColor.RED+"未知指令！请使用/mbht help 查看指令帮助！");
                 return false;
         }
         return true;
