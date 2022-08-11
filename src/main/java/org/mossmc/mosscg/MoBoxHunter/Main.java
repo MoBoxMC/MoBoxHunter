@@ -21,6 +21,9 @@ import org.mossmc.mosscg.MoBoxHunter.Player.PlayerCache;
 import org.mossmc.mosscg.MoBoxHunter.Player.PlayerReset;
 import org.mossmc.mosscg.MoBoxHunter.Step.StepWaiting;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
@@ -67,6 +70,48 @@ public class Main extends JavaPlugin {
             BasicInfo.canPoint = true;
         }
         StepWaiting.runStep();
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> tabList = new ArrayList<>();
+            if (sender.hasPermission("moboxhunter.help")) {
+                tabList.add("help");
+            }
+            if (sender.hasPermission("moboxhunter.list")) {
+                tabList.add("list");
+            }
+            if (sender.hasPermission("moboxhunter.resetcountdown")) {
+                tabList.add("resetcountdown");
+            }
+            if (sender.hasPermission("moboxhunter.reducecountdown")) {
+                tabList.add("reducecountdown");
+            }
+            if (sender.hasPermission("moboxhunter.changerole")) {
+                tabList.add("join");
+            }
+            return tabList;
+        }
+        switch (args[0]) {
+            case "join":
+                if (sender.hasPermission("moboxhunter.changerole")) {
+                    if (args.length <= 2) {
+                        return Arrays.asList("observer", "hunter", "runner");
+                    } else {
+                        List<String> nameList = new ArrayList<>();
+                        Bukkit.getOnlinePlayers().forEach(player -> nameList.add(player.getName()));
+                        return nameList;
+                    }
+                }
+                break;
+            case "reducecountdown":
+            case "resetcountdown":
+            case "list":
+            case "help":
+            default:
+        }
+        return null;
     }
 
     @Override
