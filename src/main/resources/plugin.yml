@@ -3,6 +3,7 @@ version: 1.0-SNAPSHOT
 main: org.mossmc.mosscg.MoBoxHunter.Main
 author: MossCG
 description: A plugin by MossCG for MoBoxMC.
+softdepend: [MoBoxCore]
 commands:
   moboxhunter:
     description: 主指令

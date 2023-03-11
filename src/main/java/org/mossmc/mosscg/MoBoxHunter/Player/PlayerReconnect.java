@@ -64,7 +64,9 @@ public class PlayerReconnect {
 
     public static void reconnectPlayer(UUID uuid) {
         reconnectMap.remove(uuid);
-        OfflinePlayer player = Bukkit.getOfflinePlayer(uuid);
+        Player player = Bukkit.getPlayer(uuid);
+        assert player != null;
+        player.setInvulnerable(false);
         Bukkit.broadcastMessage(ChatColor.GREEN + "玩家"+player.getName()+"已回到游戏！");
         Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "当前玩家列表：");
         Bukkit.broadcastMessage(ChatColor.RED + "猎人: " + PlayerCache.getHunterNameList());
